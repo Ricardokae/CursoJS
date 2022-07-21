@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+*{
+    margin: 0; padding: 0;
+    border: none; outline: none;
+    text-transform: capitalize;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: all 1s linear;
+    font-family: 'Open Sans', sans-serif;
+    list-style: none;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.9);
+    padding: 1rem 0;
+    
+    
+}
+
+.container{
+    
+    background: rgba(238, 236, 236, 0.9);
+    padding: 2rem;
+    border: .1rem solid rgba(0,0,0,.1);
+    border-radius:.5rem ;
+    box-shadow: .5rem .5rem 1rem rgba(0,0,0,.5);
+    width: 60rem;
+    
+    
+}
+
+.container .content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:0 2rem;
+}
+
+.container h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.container .content p{
+font-size: 1.7rem;
+line-height: 1.8;
+}
+
+.icon{
+    font-size: 3rem;
+    position: absolute;
+    top:5rem; right: 30rem;
+    color: black;
+}
+
+
+
+.container .content .box h3{
+font-size: 2.2rem;
+padding-bottom: 1rem;
+}
+
+.container .content .box ul li{
+    font-size: 1.7rem;
+    padding-bottom: 1.5rem;
+}
+
+.row h3{
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.row #form label{
+    display: block;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.row #form input{
+    width: 100%;
+    font-size: 1.6rem;
+    padding: 1.2rem 1rem;
+    margin-bottom: 1rem;
+    border: .1rem solid rgba(0,0,0,.1);
+}
+
+.row #form input:hover{
+    border: .1rem solid rgba(0,0,0,1);
+}
+
+.row #form button{
+width: 100%;
+padding: 1.2rem 1rem;
+font-size: 1.6rem;
+cursor: pointer;
+border: .1rem solid rgba(0,0,0,.1); ;
+box-shadow: 0 .5rem 1rem rgba(0,0,0,.5);
+}
+
+.row #form button:hover{
+    border: .1rem solid rgba(0,0,0,1);
+}
+
+.className{
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    padding: 1.2rem 1rem;
+    
+}
+
+.paragrafo-resultado, .errou{
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 2rem;
+    color: green;
+}
+
+.errou{
+    color: red;
+}
