@@ -1,7 +1,24 @@
-function stringToArray(string, stringTwo){
-    string = "Robin Singh".split(" ")
-    stringTwo = "I love arrays they are my favorite".split(" ")
-    console.log(string, stringTwo)
-    
+const fs = require('fs').promises;
+const path = require('path');
+
+async function readdir(rootDir){
+  rootDir =  rootDir || path.resolve(__dirname);
+  const files = await fs.readdir(rootDir);
+  walk(files, rootDir)
+}
+
+async function walk(files, rootDir){
+  for(let file of files){
+    const fileFullPath = path.resolve(rootDir, file)
+    const stats= await fs.stat(fileFullPath)
+
+    if(stats.isDirectory()){ 
+      readdir(fileFullPath);
+      continue
+    }
+
+    console.log(fileFullPath, stats.isDirectory())
   }
-  stringToArray()
+}
+
+readdir('/Users/malak/OneDrive/Área de Trabalho/Cursojs')
