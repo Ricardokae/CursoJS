@@ -9,23 +9,16 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>criação de lista de nomes</h1>
+   
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <form action="/" class="form">
+        <input type="text" id="tarefa" placeholder="Adicionar nova tarefa">
+        <button id="adicionar">Adicionar</button>
+        </form>
+        <ul id="lista"></ul> 
+      </div>
 
-    <form action="#" id="name-form">
-        <h2>preencha o formulário para continuar:</h2>
-        <label for="name">Nome:</label>
-        <input type="text"
-         name="name" 
-        id="name" 
-        placeholder="por favor digite o seu nome..." 
-        required>
-        <input type="submit" value="Enviar" id="btn">
-    </form>  
-    <div class="list-name">
-        <ul id="list">
-
-        </ul>
-    </div>
     <!--link js-->
     <script src="js/app.js"></script>
 </body>

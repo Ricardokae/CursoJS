@@ -1,41 +1,52 @@
-const btn = document.getElementById("btn")
-const welcomeContainer = document.getElementById("welcome")
-const listContainer = document.getElementById("list")
-const nameInput = document.getElementById('name')
+const form = document.querySelector('.form')
+const tarefaInput = document.getElementById('tarefa')
+const lista = document.getElementById('lista')
 
-const listName =  JSON.parse(localStorage.getItem('name')) || []
+const tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 
- function createList(){
-    const createLi =  document.createElement('li')
-    createLi.textContent = nameInput.value
-    listContainer.appendChild(createLi)
-    savePerson()
+function adicionarTarefa(event){
+  event.preventDefault();
 
-    
- }
+  const tarefa = tarefaInput.value;
+  tarefas.push(tarefa);
+  tarefaInput.value = '';
+  saveTask()
 
- function addNameList(){
-    const name = nameInput.value
-    listName.push(name)
-    savePerson()
- }
-//local Store
+  renderTask()
+}
 
- function savePerson(){    
-     localStorage.setItem('name', JSON.stringify(listName))     
-    }
+function renderTask(){
+  lista.innerHTML = '';
+ 
+  for(i = 0; i < tarefas.length; i++){
+    const tarefa = tarefas[i]
 
+    const taskText = document.createTextNode(tarefa)
+    const li = document.createElement('li')
+    const removeButton = document.createElement('button')
+    const removeButtonText = document.createTextNode('Excluir')
 
+    removeButton.appendChild(removeButtonText)
+    removeButton.setAttribute('data-index', i)
+    removeButton.addEventListener('click', removeItem)
+    li.appendChild(taskText)
+    li.appendChild(removeButton)
+    lista.appendChild(li)  
+  };
+}
+
+function removeItem(event){
+const index = event.target.getAttribute('data-index')
+tarefas.splice(index, 1)
+saveTask()
+renderTask()
+}
+
+//localStore
+function saveTask(){
+ localStorage.setItem('tarefas', JSON.stringify(tarefas))
+}
 //event
-btn.addEventListener('click', (e)=>{
-    e.preventDefault();
-    
-    addNameList()
-    createList()
-})
-
-
-
-// appication start
-
-
+form.addEventListener('submit',adicionarTarefa);
+//init ap
+renderTask()
